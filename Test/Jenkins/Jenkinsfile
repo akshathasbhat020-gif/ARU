@@ -1,22 +1,39 @@
-pipeline{
+pipeline {
     agent any
     
-    stages{
-        stage(Bulid){
-            steps{
+    stages {
+        stage('System Health Check') {
+            steps {
                 sh '''
-                uptime
-                date
-                echo "hello"
+                    echo "=== Memory Usage ==="
+                    free -h
+                    echo "=== CPU Usage ==="
+                    top -bn1 | head -20
                 '''
             }
         }
-        stage(Akshatha){
-            steps{
-                sh'''
-                uptime
-                date
-                echo "This is my name"
+        
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'  // or your package manager
+            }
+        }
+        
+        stage('Run Tests') {
+            steps {
+                sh 'npm test'  // or your test command
+            }
+        }
+        
+        stage('Performance Monitoring') {
+            steps {
+                sh '''
+                    echo "=== RAM Check Before ==="
+                    free -h
+                    npm start &  // Start your server
+                    sleep 5
+                    echo "=== RAM Check After ==="
+                    free -h
                 '''
             }
         }
