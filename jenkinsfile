@@ -15,14 +15,14 @@ pipeline{
             steps{
                 sh'''
                 printenv
-                Docker build -t ${IMAGE_NAME} .
+                docker build -t ${IMAGE_NAME} .
                 '''
             }
         }
         stage('Testing-stage'){
             steps{
                 sh'''
-                Docker run -it -d --name page -p 80:80 ${IMAGE_NAME}
+                docker run -it -d --name page -p 80:80 ${IMAGE_NAME}
                 '''
             }
         }
