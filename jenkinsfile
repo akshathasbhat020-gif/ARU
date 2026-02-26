@@ -24,9 +24,12 @@ pipeline{
                 sh'''
                 docker run -it -d --name page -p 80:80 ${IMAGE_NAME}
 
-                stage('Login to Docker Hub') {
-    stage('Login to Docker Hub') {
-    steps {
+                
+                '''
+            }
+        }
+        stage('Login to Docker Hub') {
+       steps {
         script {
             withCredentials([usernamePassword(
                 credentialsId: 'docker-hub-creds',
@@ -50,8 +53,5 @@ stage('Pushing to Docker Hub') {
         '''
     }
 }
-                '''
-            }
-        }
     }
 }
