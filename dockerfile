@@ -4,8 +4,7 @@ WORKDIR /app
 
 COPY . /app/
 
-RUN apt-get update && apt-get install -y
-    build-essential \
+RUN apt-get update && apt-get install -y build-essential \
     libg \
    libglib2.0-0
 
