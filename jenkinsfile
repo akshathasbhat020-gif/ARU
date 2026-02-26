@@ -1,0 +1,30 @@
+pipeline{
+    agent any
+
+    environment{
+        IMAGE_NAME = "akshathasbhat/page:${GIT_COMMIT}"
+    }
+
+    stages{
+        stage('Git-Checkout'){
+            steps{
+                git url: 'https://github.com/akshathasbhat020-gif/ARU.git', branch: 'app'
+            }
+        }
+        stage('Build-stage'){
+            steps{
+                sh'''
+                printenv
+                docker build -t ${IMAGE_NAME} .
+                '''
+            }
+        }
+        stage('Testing-stage'){
+            steps{
+                sh'''
+                docker run -it -d --name page -p 80:80 ${IMAGE_NAME}
+                '''
+            }
+        }
+    }
+}
