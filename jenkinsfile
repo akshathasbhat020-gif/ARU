@@ -1,0 +1,57 @@
+pipeline{
+    agent any
+
+    environment{
+        IMAGE_NAME = "akshathasbhat/c1:${GIT_COMMIT}"
+    }
+
+    stages{
+        stage('Git-Checkout'){
+            steps{
+                git url: 'https://github.com/akshathasbhat020-gif/ARU.git', branch: 'app'
+            }
+        }
+        stage('Build-stage'){
+            steps{
+                sh'''
+                printenv
+                docker build -t ${IMAGE_NAME} .
+                '''
+            }
+        }
+        stage('Testing-stage'){
+            steps{
+                sh'''
+                docker run -it -d --name c1 -p 9002:80 ${IMAGE_NAME}
+
+                
+                '''
+            }
+        }
+        stage('Login to Docker Hub') {
+       steps {
+        script {
+            withCredentials([usernamePassword(
+                credentialsId: 'docker-hub-creds',
+                usernameVariable: 'DOCKER_USERNAME',
+                passwordVariable: 'DOCKER_PASSWORD'
+            )]) {
+
+                // Login to Docker Hub
+                sh '''
+                    echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+                '''
+            }
+        }
+    }
+}
+
+stage('Pushing to Docker Hub') {
+    steps {
+        sh '''
+            docker push ${IMAGE_NAME}
+        '''
+    }
+}
+    }
+}

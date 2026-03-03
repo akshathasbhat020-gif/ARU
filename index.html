@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram UI Clone</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #fafafa;
+}
+
+/* Navbar */
+.navbar {
+    background: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+/* Feed */
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* Post Card */
+.post {
+    background: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Post Header */
+.post-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ccc;
+    margin-right: 10px;
+}
+
+.username {
+    font-weight: bold;
+}
+
+/* Post Image */
+.post img {
+    width: 100%;
+    height: auto;
+}
+
+/* Post Actions */
+.post-actions {
+    padding: 10px 15px;
+    font-size: 18px;
+}
+
+.post-actions span {
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+/* Likes */
+.likes {
+    padding: 0 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Caption */
+.caption {
+    padding: 0 15px;
+    margin-bottom: 8px;
+}
+
+/* Comments */
+.comments {
+    padding: 0 15px 10px 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.comment-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+    padding: 10px 15px;
+}
+
+.comment-input input {
+    flex: 1;
+    border: none;
+    outline: none;
+}
+
+.comment-input button {
+    border: none;
+    background: none;
+    color: #3897f0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+    }
+
+    .container {
+        margin: 10px auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<div class="navbar">
+    <div class="logo">InstaClone</div>
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Explore</a>
+        <a href="#">Profile</a>
+    </div>
+</div>
+
+<!-- Feed -->
+<div class="container">
+
+    <!-- Post 1 -->
+    <div class="post">
+        <div class="post-header">
+            <div class="profile-pic"></div>
+            <div class="username">user_one</div>
+        </div>
+        <img src="https://picsum.photos/600/400?random=1" alt="Post Image">
+        <div class="post-actions">
+            <span>❤️</span>
+            <span>💬</span>
+            <span>📤</span>
+        </div>
+        <div class="likes">120 likes</div>
+        <div class="caption"><b>user_one</b> Enjoying the view! 🌄</div>
+        <div class="comments">
+            <div><b>friend1</b> Amazing!</div>
+            <div><b>friend2</b> Wow 🔥</div>
+        </div>
+        <div class="comment-input">
+            <input type="text" placeholder="Add a comment...">
+            <button>Post</button>
+        </div>
+    </div>
+
+    <!-- Post 2 -->
+    <div class="post">
+        <div class="post-header">
+            <div class="profile-pic"></div>
+            <div class="username">user_two</div>
+        </div>
+        <img src="https://picsum.photos/600/400?random=2" alt="Post Image">
+        <div class="post-actions">
+            <span>❤️</span>
+            <span>💬</span>
+            <span>📤</span>
+        </div>
+        <div class="likes">250 likes</div>
+        <div class="caption"><b>user_two</b> Weekend vibes ☀️</div>
+        <div class="comments">
+            <div><b>friend3</b> Love this!</div>
+            <div><b>friend4</b> So cool 😎</div>
+        </div>
+        <div class="comment-input">
+            <input type="text" placeholder="Add a comment...">
+            <button>Post</button>
+        </div>
+    </div>
+
+    <!-- Post 3 -->
+    <div class="post">
+        <div class="post-header">
+            <div class="profile-pic"></div>
+            <div class="username">user_three</div>
+        </div>
+        <img src="https://picsum.photos/600/400?random=3" alt="Post Image">
+        <div class="post-actions">
+            <span>❤️</span>
+            <span>💬</span>
+            <span>📤</span>
+        </div>
+        <div class="likes">310 likes</div>
+        <div class="caption"><b>user_three</b> Nature is beautiful 🌿</div>
+        <div class="comments">
+            <div><b>friend5</b> Peaceful!</div>
+        </div>
+        <div class="comment-input">
+            <input type="text" placeholder="Add a comment...">
+            <button>Post</button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
