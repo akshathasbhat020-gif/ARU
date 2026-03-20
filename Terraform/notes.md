@@ -13,3 +13,14 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashi
 sudo apt update
 sudo apt-get install terraform -y
 '''
+## 2. AWS cli installation on ubuntu
+'''bash
+snap install aws-cli --classic
+'''
+
+'''
+root@ip-172-31-14-45:~/ARU/Terraform/EC2# aws configure
+AWS Access Key ID [None]: 
+AWS Secret Access Key [None]: 
+Default region name [None]: ap-northeast-2
+Default output format [None]: json
