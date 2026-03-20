@@ -5,7 +5,7 @@ provider "aws" {
 resource "aws_instance" "arun" {
     ami = "ami-0ecfdfd1c8ae01aec"
     instance_type = "t3.micro"
-    security_groups = []
+    security_groups = [aws_security_group.terraform.id]
 }
 
 resource "aws_security_group" "terraform" {
