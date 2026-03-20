@@ -4,5 +4,5 @@ provider "aws" {
     secret_key = ""
     }
 resource "aws_s3_bucket" "Terraform-bucket" {
-    bucket = "terraform-Akshatha-2024"
+    bucket = "terraform-akshatha-2024"
 }
