@@ -24,3 +24,11 @@ AWS Access Key ID [None]:
 AWS Secret Access Key [None]: 
 Default region name [None]: ap-northeast-2
 Default output format [None]: json
+'''
+
+## 3.AWS uses IANA Protocol Numbers
+Protocol     Number 
+TCP             6
+UDP            17
+ICMP            1
+ALL            -1
